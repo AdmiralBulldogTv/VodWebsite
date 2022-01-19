@@ -99,7 +99,7 @@ export default defineComponent({
 						zero_width: emotes.value[s].zero_width,
 						link_href: "",
 					});
-				} else if (s.match(/^(\w+\.){1,}\w{2,}(.*)$/)) {
+				} else if (s.match(/^(https?:\/\/)?(\w+\.){1,}\w{2,}(.*)$/)) {
 					if (content.length) {
 						parts.push({
 							type: "content",
