@@ -8,9 +8,9 @@ updates:
       time: "00:00"
     open-pull-requests-limit: 10
     reviewers:
-      - wintersun93
+      - troydota
     assignees:
-      - wintersun93
+      - troydota
     commit-message:
       prefix: fix
       prefix-development: chore
