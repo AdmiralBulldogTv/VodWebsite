@@ -1,0 +1,32 @@
+.bg {
+	background-color: black;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+}
+
+.loading,
+.error {
+	display: grid;
+	flex-grow: 1;
+	place-items: center;
+	font-size: 5em;
+}
+
+.vod {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+}
+
+.player {
+	flex-grow: 1;
+	video {
+		width: 100%;
+		height: 100%;
+	}
+}
+
+.chat {
+	min-width: 22rem;
+}
