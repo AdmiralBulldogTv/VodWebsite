@@ -238,7 +238,7 @@ export default defineComponent({
 				});
 			} else if (el.canPlayType("application/vnd.apple.mpegurl")) {
 				el.src = src;
-				variants.value = props.vod.variants;
+				variants.value = props.vod.variants.filter(v => v.ready);
 			}
 			video.value.currentTime = startTime;
 			canAutoplay
