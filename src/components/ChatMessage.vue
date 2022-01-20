@@ -2,12 +2,12 @@
 	<div class="message">
 		<span>
 			<img
-				v-for="(baj, i) in msg.badges"
+				v-for="(badge, i) in badges"
 				:key="i"
 				class="badge"
-				:src="baj.urls[0]"
-				:alt="`${baj.name} `"
-				:title="baj.name"
+				:src="badge.urls[0]"
+				:alt="`${badge.name} `"
+				:title="badge.name"
 			/>
 		</span>
 		<span class="name" :style="`color: ${msg.twitch.color || stringToColour(msg.twitch.display_name)}`">
@@ -137,8 +137,21 @@ export default defineComponent({
 			return parts;
 		});
 
+		const badges = computed(() => {
+			return msg.value.badges.slice().map((v) => {
+				v.urls = v.urls.slice().map((v) => {
+					if (v === "https://static-cdn.jtvnw.net/chat-badges/broadcaster.png") {
+						return "https://static-cdn.jtvnw.net/badges/v1/5527c58c-fb7d-422d-b71b-f309dcb85cc1/2";
+					}
+					return v;
+				});
+				return v;
+			});
+		});
+
 		return {
-			msg,  // eslint-disable-line
+			badges,
+			msg, // eslint-disable-line
 			parts,
 			stringToColour,
 		};
