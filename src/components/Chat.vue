@@ -80,6 +80,8 @@ export default defineComponent({
 					messages.value.push(...res);
 				}
 				chatEnd.value = messages.value[messages.value.length - 1].vod_time;
+			} else {
+				chatEnd.value = dayjs(props.vod.ended_at).diff(props.vod.started_at) / 1000
 			}
 		});
 
